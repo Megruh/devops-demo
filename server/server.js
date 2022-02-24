@@ -19,16 +19,16 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/index.html'))
 })
 
-//app.use(express.static(path.join(__dirname, '../public')))
-// let catPicTrue = false
-// app.post('/api/cat', (req, res) => {
-//     if (catPicTrue === false){
-//         rollbar.info('here is a cat pic')
-//         catPicTrue = true
-//     } else if (catPicTrue === true){
-//         rollbar.critical("don't be a crazy cat person")
-//     }
-// })
+app.use(express.static(path.join(__dirname, '../public')))
+let catPicTrue = false
+app.post('/api/cat', (req, res) => {
+    if (catPicTrue === false){
+        rollbar.info('here is a cat pic')
+        catPicTrue = true
+    } else if (catPicTrue === true){
+        rollbar.critical("don't be a crazy cat person")
+    }
+})
 
 let students = []
 
