@@ -19,7 +19,10 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/index.html'))
 })
 
-app.use(express.static(path.join(__dirname, '../public')))
+//app.use(express.static(path.join(__dirname, '../public')))
+app.get('/', function(req, res){
+    res.sendFile(path.join(__dirname, '../public/styles.css'))
+})
 
 let students = []
 
@@ -31,7 +34,7 @@ app.post('/api/student', (req, res)=>{
 
     if(index === -1 && name !== ''){
         students.push(name)
-        rollbar.log('Student added successfully', {author: 'Scott', type: 'manual entry'})
+        rollbar.log('Student added successfully', {author: 'Meg', type: 'manual entry'})
         res.status(200).send(students)
     } else if (name === ''){
         rollbar.error('No name given')
@@ -42,6 +45,7 @@ app.post('/api/student', (req, res)=>{
     }
 
 })
+
 
 app.use(rollbar.errorHandler())
 
