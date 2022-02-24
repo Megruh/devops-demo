@@ -20,9 +20,7 @@ app.get('/', (req, res) => {
 })
 
 //app.use(express.static(path.join(__dirname, '../public')))
-app.get('/', function(req, res){
-    res.sendFile(path.join(__dirname, '../public/styles.css'))
-})
+
 
 let students = []
 
@@ -46,6 +44,13 @@ app.post('/api/student', (req, res)=>{
 
 })
 
+app.get('/', function(req, res){
+    res.sendFile(path.join(__dirname, '../public/index.html'))
+})
+
+app.get('/css', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/styles.css'))
+})
 
 app.use(rollbar.errorHandler())
 
