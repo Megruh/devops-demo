@@ -35,8 +35,14 @@ app.post('/api/student', (req, res)=>{
         rollbar.log('Student added successfully', {author: 'Meg', type: 'manual entry'})
         res.status(200).send(students)
     } else if (name === ''){
-        rollbar.critical('No name given')
+        rollbar.error('No name given')
         res.status(400).send('must provide a name.')
+    } else if (name === 'Meg'){
+        rollbar.critical('Meg is not a student')
+        res.status(400).send('Enter a different name')
+    } else if (name === 'Tyler'){
+        rollbar.info('Tyler is partners with Meg')
+        res.status(400).send('You need a new partner')
     } else {
         rollbar.warning('student already exists')
         res.status(400).send('that student already exists')
