@@ -49,5 +49,20 @@
 
         addForm.addEventListener('submit', submitHandler)
     </script>
+
+    <button id="cat">Press Me</button>
+    <script>
+        function catButton (e) {
+            e.preventDefault()
+            axios.post('/api/cat')
+            .then(res => {
+                const catPic = document.createElement('div')
+                catPic.innerHTML = `<div class=catPic></div>`
+                document.body.appendChild(catPic)
+            .catch()
+            })
+        }
+        document.querySelector('.cat').addEventListener('click', catButton)
+    </script>
 </body>
 </html>
