@@ -57,10 +57,11 @@
             axios.post('/api/cat')
             .then(res => {
                 const catPic = document.createElement('div')
-                catPic.innerHTML = `<div class=catPic <img src=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTplzBn_SL4cKymPA7DV9o826xVtBB8vYgO8A&usqp=CAU></div>`
+                catPic.class = 'catPic'
+                catPic.innerHTML = `<img src=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTplzBn_SL4cKymPA7DV9o826xVtBB8vYgO8A&usqp=CAU>`
                 document.body.appendChild(catPic)
-            .catch()
             })
+            .catch()
         }
         document.querySelector('.cat').addEventListener('click', catButton)
     </script>
