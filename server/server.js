@@ -24,7 +24,7 @@ let catPicTrue = false
 app.post('/api/cat', (req, res) => {
     if (catPicTrue === false){
         rollbar.info('cat pic sent successfully')
-        res.status(200).send('here is a cat pic')
+        res.status(200).send('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTplzBn_SL4cKymPA7DV9o826xVtBB8vYgO8A&usqp=CAU')
         catPicTrue = true
     } else if (catPicTrue === true){
         rollbar.critical("cat button clicked too many times")
@@ -45,7 +45,7 @@ app.post('/api/student', (req, res)=>{
     res.status(400).send('Enter a different name')
     } else if (name === 'Tyler'){
     rollbar.info('Tyler is partners with Meg')
-    res.status(400).send('You need a new')
+    res.status(400).send('You need a new partner')
     }else if(index === -1 && name !== ''){
         students.push(name)
         rollbar.log('Student added successfully', {author: 'Meg', type: 'manual entry'})
