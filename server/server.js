@@ -23,10 +23,12 @@ app.use(express.static(path.join(__dirname, '../public')))
 let catPicTrue = false
 app.post('/api/cat', (req, res) => {
     if (catPicTrue === false){
-        rollbar.info('here is a cat pic')
+        rollbar.info('cat pic sent successfully')
+        res.status(200).send('here is a cat pic')
         catPicTrue = true
     } else if (catPicTrue === true){
-        rollbar.critical("don't be a crazy cat person")
+        rollbar.critical("cat button clicked too many times")
+        res.status(400).send("don't be a crazy cat person")
     }
 })
 
