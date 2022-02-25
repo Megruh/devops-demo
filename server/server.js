@@ -27,7 +27,7 @@ app.post('/api/cat', (req, res) => {
         res.status(200).send('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTplzBn_SL4cKymPA7DV9o826xVtBB8vYgO8A&usqp=CAU')
         catPicTrue = true
     } else if (catPicTrue === true){
-        rollbar.critical("cat button clicked too many times")
+        rollbar.critical("don't be a crazy cat person")
         res.status(400).send("don't be a crazy cat person")
     }
 })
